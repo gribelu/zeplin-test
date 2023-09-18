@@ -32,6 +32,7 @@ const customStyles = {
       height: "62px",
       backgroundColor: '#fbfbfd',
       fontSize: "13px",
+      paddingLeft: "18px",
       "&:hover": {
         color: "#307fc1",
       },
@@ -93,25 +94,25 @@ function HomePage() {
       selector: (row) => row?.name,
       sortable: true,
       id: "friendlyname",
-      minWidth: '22%',
+      minWidth: '22.5%',
     },
     {
       name: "DNS Name",
       selector: (row) => row?.dns,
       sortable: true,
       id: "dnsname",
-      minWidth: '22%',
+      minWidth: '25.5%',
     },
     {
       name: "Environment",
       selector: (row) => <p>{row?.des}</p>,
       sortable: true,
       id: "environment",
-      minWidth: '22%',
+      minWidth: '22%'
     },
     {
       name: "End Date",
-      minWidth: '22%',
+      minWidth: '18%',
       selector: (row) => (
         <p>
           {row?.date},
@@ -191,10 +192,18 @@ function HomePage() {
                         handleView("card");
                       }}
                     >
-                      <RxCopy
+                      {/* <RxCopy
                         className={`${viewType === "card" ? "is-selected" : ""
                           }`}
-                      />
+                      /> */}
+                      <svg className={`${viewType === "card" ? "is-selected" : ""
+                        }`} width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="currentColor" fill-rule="evenodd">
+                          <path d="M1.5 1a.5.5 0 0 0-.5.5v18a.5.5 0 0 0 .5.5h18a.5.5 0 0 0 .5-.5v-18a.5.5 0 0 0-.5-.5h-18zm18 20h-18C.673 21 0 20.327 0 19.5v-18C0 .673.673 0 1.5 0h18c.827 0 1.5.673 1.5 1.5v18c0 .827-.673 1.5-1.5 1.5z" />
+                          <path d="M22.5 24h-18c-.827 0-1.5-.673-1.5-1.5a.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h18a.5.5 0 0 0 .5-.5v-18a.5.5 0 0 0-.5-.5.5.5 0 0 1 0-1c.827 0 1.5.673 1.5 1.5v18c0 .827-.673 1.5-1.5 1.5" />
+                        </g>
+                      </svg>
+
                     </div>
                   </Tooltip>
                 </div>
@@ -250,8 +259,7 @@ function HomePage() {
                 </div>
                 {open ? (
                   <>
-                    <hr />
-                    <div className=" justify-between bg-cgray-150 py-[30px] px-19px">
+                    <div className="item-list__filters__menu justify-between">
                       <div className="self-center">
                         <label className="text-cgray-500 font-medium text-xsm ml-2">
                           SELECT ACCESS TYPE
@@ -285,7 +293,7 @@ function HomePage() {
               </div>
               {openDrop ? (
                 <>
-                  <div className="bg-white mt-[-25px] py-2 px-2 mx-4 border rounded-md border-[#D4D4D8]">
+                  <div className="item-list__filters__dropdown bg-white mt-[-25px] py-2 px-2 mx-4 border rounded-md border-[#D4D4D8]">
                     {dropdownList.map((ele, index) => {
                       return (
                         <React.Fragment key={index}>
