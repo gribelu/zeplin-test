@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import useMousePosition from './lib/mousePosition.js';
+// import useMousePosition from "./lib/Cursor//useMousePosition";
+// import { CursorContext } from "./lib/Cursor//CursorContextProvider";
+// import isTouchDevice from "./lib/Cursor/isTouchDevice";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

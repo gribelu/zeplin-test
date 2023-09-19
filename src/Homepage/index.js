@@ -32,7 +32,8 @@ const customStyles = {
       height: "62px",
       backgroundColor: '#fbfbfd',
       fontSize: "13px",
-      paddingLeft: "18px",
+      paddingLeft: "20px",
+      fontWeight: "normal",
       "&:hover": {
         color: "#307fc1",
       },
@@ -94,7 +95,7 @@ function HomePage() {
       selector: (row) => row?.name,
       sortable: true,
       id: "friendlyname",
-      minWidth: '22.5%',
+      minWidth: '22%',
     },
     {
       name: "DNS Name",
@@ -112,7 +113,7 @@ function HomePage() {
     },
     {
       name: "End Date",
-      minWidth: '18%',
+      minWidth: '18.5%',
       selector: (row) => (
         <p>
           {row?.date},
@@ -145,7 +146,9 @@ function HomePage() {
   return (
     <>
       <Header />
-      <div className="page-wrap">
+      <div className="page-wrap" onClick={() => {
+                  if(drop) { setDrop(false) };
+                }}>
         <section className="item-list__wrap">
           <div className="">
             <div className="item-list__header">
@@ -178,10 +181,16 @@ function HomePage() {
                         handleView("grid");
                       }}
                     >
-                      <BsListTask
+                      {/* <BsListTask
                         className={`${viewType === "grid" ? "is-selected" : ""
                           }`}
-                      />
+                      /> */}
+                      <svg className={`${viewType === "grid" ? "is-selected" : ""}`} width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <g fill="currentColor" fillRule="evenodd">
+                              <path d="M23.5 4.5h-15a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1M23.5 12.5h-15a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1M23.5 20.5h-15a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1M1.5 2.5A.5.5 0 0 0 1 3v2a.5.5 0 0 0 .5.5h2A.5.5 0 0 0 4 5V3a.5.5 0 0 0-.5-.5h-2zm2 4h-2C.673 6.5 0 5.827 0 5V3c0-.827.673-1.5 1.5-1.5h2C4.327 1.5 5 2.173 5 3v2c0 .827-.673 1.5-1.5 1.5zM1.5 10.5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2A.5.5 0 0 0 4 13v-2a.5.5 0 0 0-.5-.5h-2zm2 4h-2C.673 14.5 0 13.827 0 13v-2c0-.827.673-1.5 1.5-1.5h2c.827 0 1.5.673 1.5 1.5v2c0 .827-.673 1.5-1.5 1.5zM1.5 18.5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2A.5.5 0 0 0 4 21v-2a.5.5 0 0 0-.5-.5h-2zm2 4h-2C.673 22.5 0 21.827 0 21v-2c0-.827.673-1.5 1.5-1.5h2c.827 0 1.5.673 1.5 1.5v2c0 .827-.673 1.5-1.5 1.5z"/>
+                          </g>
+                      </svg>
+
                     </div>
                   </Tooltip>
                 </div>
@@ -198,7 +207,7 @@ function HomePage() {
                       /> */}
                       <svg className={`${viewType === "card" ? "is-selected" : ""
                         }`} width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="currentColor" fill-rule="evenodd">
+                        <g fill="currentColor" fillRule="evenodd">
                           <path d="M1.5 1a.5.5 0 0 0-.5.5v18a.5.5 0 0 0 .5.5h18a.5.5 0 0 0 .5-.5v-18a.5.5 0 0 0-.5-.5h-18zm18 20h-18C.673 21 0 20.327 0 19.5v-18C0 .673.673 0 1.5 0h18c.827 0 1.5.673 1.5 1.5v18c0 .827-.673 1.5-1.5 1.5z" />
                           <path d="M22.5 24h-18c-.827 0-1.5-.673-1.5-1.5a.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h18a.5.5 0 0 0 .5-.5v-18a.5.5 0 0 0-.5-.5.5.5 0 0 1 0-1c.827 0 1.5.673 1.5 1.5v18c0 .827-.673 1.5-1.5 1.5" />
                         </g>
@@ -244,7 +253,7 @@ function HomePage() {
           <div className="item-list__columns">
             <div className="item-list__filters">
               <div className="rounded-lg overflow-hidden">
-                <div className="item-list__filters__header flex justify-between py-4 px-19px bg-white shadow-1xl">
+                <div className="item-list__filters__header">
                   <div className="self-center">
                     <p className="text-black  font-normal text-lg">
                       Access Type
@@ -261,7 +270,7 @@ function HomePage() {
                   <>
                     <div className="item-list__filters__menu justify-between">
                       <div className="self-center">
-                        <label className="text-cgray-500 font-medium text-xsm ml-2">
+                        <label>
                           SELECT ACCESS TYPE
                         </label>
                         <div className="relative text-sky-100 focus-within:text-gray-400 md:col-span-4 mt-2.5">
@@ -293,7 +302,7 @@ function HomePage() {
               </div>
               {openDrop ? (
                 <>
-                  <div className="item-list__filters__dropdown bg-white mt-[-25px] py-2 px-2 mx-4 border rounded-md border-[#D4D4D8]">
+                  <div className="item-list__filters__dropdown bg-white border rounded-md border-[#D4D4D8]">
                     {dropdownList.map((ele, index) => {
                       return (
                         <React.Fragment key={index}>
@@ -302,10 +311,10 @@ function HomePage() {
                               setVal(ele?.value);
                               setOpenDrop(false);
                             }}
-                            className={`flex my-1 justify-between rounded-md cursor-pointer ${ele?.label === val ? "bg-[#EEF0F4]" : ""
-                              } hover:bg-[#EEF0F4]`}
+                            className={`flex my-1 justify-between rounded-md cursor-pointer ${ele?.label === val ? "bg-[#f5f6f8]" : ""
+                              } hover:bg-[#f5f6f8]`}
                           >
-                            <p className=" py-2 px-1 self-center">
+                            <p className="self-center">
                               {ele?.label}
                             </p>
                             {ele?.label === val && (

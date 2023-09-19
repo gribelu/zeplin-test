@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import Tooltip from "rc-tooltip";
 
 function DetailsDrawer(props) {
   const { handleCloseModel, showModal } = props;
@@ -23,6 +24,7 @@ function DetailsDrawer(props) {
           <div className="modal__inner">
             <div className="modal__inner-inner">
               <div className="modal__eventless-box">
+                {/* <div className="modal__cursor-handler"></div> */}
                 <Transition.Child
                   as={Fragment}
                   enter="transform transition ease-in-out duration-400 sm:duration-400"

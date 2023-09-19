@@ -23,6 +23,9 @@ function Pagination() {
           <p className="">3</p>
         </div>
         <div className="">
+          <p className="">3</p>
+        </div>
+        <div className="">
           <p className="">4</p>
         </div>
         <div className="pagination__more">

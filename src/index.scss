@@ -123,6 +123,7 @@ body {
     }
 
     &__categories {
+        border: none;
         border-bottom: 4px solid;
         border-image: $tertiary-gradient 1;
         transition: border-image $transition;
@@ -174,6 +175,7 @@ body {
     &__display-type {
         display: flex;
         padding-top: 0.7rem;
+        color: #959598;
 
         & > div {
             align-self: center;
@@ -328,10 +330,18 @@ body {
             cursor: pointer;
             height: 40px;
             box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            border: solid 1px #ebebed;
+            font-size: 1rem;
+            padding-left: 8px;
+            caret-color: transparent;
         }
 
         &__header {
             border-bottom: solid 1px #efeff1;
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 19px 12px;
+            background: #fff;
         }
 
         &__menu {
@@ -344,6 +354,16 @@ body {
             padding-bottom: 30px;
             padding-left: 19px;
             padding-right: 19px;
+            margin-bottom: 1px;
+
+            label {
+                font-size: 10px;
+                text-transform: uppercase;
+                color: #b4b4b4;
+                font-weight: 500;
+                margin: 1.4em 0 0 1em;
+                display: block;
+            }
         }
 
         > :nth-last-child(1) {
@@ -356,6 +376,16 @@ body {
             margin-bottom: 1rem;
             animation: drop-grow 0.25s ease-in-out;
             transform-origin: top;
+            margin: -27px 18px 0;
+            padding: 6px 5px 1px 5px;
+
+            > div {
+                margin: 0 0 3.2px;
+
+                > p {
+                    padding: 10.5px 17px;
+                }
+            }
         }
     }
 
@@ -500,16 +530,14 @@ body {
     border: solid 1px #ebebed;
     display: flex;
     width: fit-content;
-    margin-top: 28px;
-    // overflow: hidden;
-    // padding-top: 2px;
-    // padding-bottom: 4px;
+    margin-top: 31px;
+    margin-left: -2px;
 
     > div {
         font-size: 14px;
         line-height: 1;
         color: #5d6870;
-        padding: 0.95rem 1rem 0.3rem 1rem;
+        padding: 0.95rem 14.5px 0.3rem 16.2px;
         border-right: solid 1px #ebebed;
         cursor: pointer;
         position: relative;
@@ -534,8 +562,8 @@ body {
             transition: opacity $transition;
         }
         &::before {
-            height: 2px;
-            top: -2px;
+            height: 1px;
+            top: -1px;
         }
         &::after {
             bottom: -1px;
@@ -564,6 +592,7 @@ body {
 
     & > &__more {
         pointer-events: none;
+        padding: 0.95rem 11.6px 0.3rem;
 
         > p {
             font-size: 12px;
@@ -581,6 +610,8 @@ body {
     }
     & > &__prev,
     & > &__next {
+        padding: 0.95rem 15.5px 0.3rem 15.5px;
+
         > img {
             position: relative;
             top: -3px;
@@ -604,7 +635,6 @@ body {
     }
 
     &__backdrop {
-        backdrop-filter: blur(16px) opacity(1);
         opacity: 0.4;
         background-color: #000;
         width: 100%;
@@ -623,6 +653,21 @@ body {
         left: 0;
         right: 0;
         position: fixed;
+
+        &::after {
+            backdrop-filter: blur(2px);
+            animation: backdrop-blur 0.25s ease-in-out;
+            z-index: -1;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
 
         &-inner {
             overflow: hidden;
@@ -645,6 +690,13 @@ body {
         position: fixed;
         pointer-events: none;
     }
+
+    // &__cursor-handler {
+    //     width: 200%;
+    //     cursor: pointer;
+    //     // z-index: 46;
+    //     background: aliceblue;
+    // }
 
     &__box {
         will-change: transform;
@@ -696,7 +748,7 @@ body {
     &__details-table {
         box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.11);
         background-color: #fff;
-        padding: 32px 30px;
+        padding: 16px 30px 29px;
         display: grid;
         grid-template-columns: repeat(12, minmax(0, 1fr));
 

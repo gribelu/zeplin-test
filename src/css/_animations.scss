@@ -9,6 +9,16 @@
     }
 }
 
+@keyframes backdrop-blur {
+    from {
+        backdrop-filter: blur(0px);
+    }
+    to {
+        backdrop-filter: blur(2px);
+    }
+}
+
+
 .transition-opacity-0 {
     opacity: 0;
 }
