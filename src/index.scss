@@ -24,7 +24,9 @@ body {
 .page-wrap {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    max-width: 1360px;
+    // max-width: 1360px;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .site-header {
@@ -46,6 +48,10 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        max-width: 1920px;
+        margin: 0 auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     &__left {
@@ -427,9 +433,14 @@ body {
         gap: 17px;
         grid-template-columns: repeat(12, minmax(0, 1fr));
 
+        @media (min-width: 1800px) {
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+        }
+
         &__item {
             position: relative;
             grid-column: span 12 / span 12;
+            // width: 310px;
 
             @media (min-width: 640px) {
                 grid-column: span 6 / span 6;
@@ -437,6 +448,18 @@ body {
 
             @media (min-width: 1024px) {
                 grid-column: span 4 / span 4;
+            }
+
+            @media (min-width: 1600px) {
+                grid-column: span 3 / span 3;
+            }
+
+            @media (min-width: 1800px) {
+                grid-column: span 2 / span 2;
+            }
+
+            @media (min-width: 1800px) {
+                grid-column: span 2 / span 2;
             }
 
             box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.05);
